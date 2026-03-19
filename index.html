@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Counter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Vowel Counter</h1>
+
+        <form method="POST">
+            <textarea name="text" placeholder="Enter your text here...">{{ text }}</textarea>
+            <button type="submit">Count Vowels</button>
+        </form>
+
+        {% if text %}
+            <div class="result">
+                <h2>Result</h2>
+                <p><strong>Total Vowels:</strong> {{ total_vowels }}</p>
+                <ul>
+                    <li>A : {{ vowel_counts['a'] }}</li>
+                    <li>E : {{ vowel_counts['e'] }}</li>
+                    <li>I : {{ vowel_counts['i'] }}</li>
+                    <li>O : {{ vowel_counts['o'] }}</li>
+                    <li>U : {{ vowel_counts['u'] }}</li>
+                </ul>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
